@@ -22,4 +22,5 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 
 ## Alterações
 
-- 
+- Utilizar o Flyway como ferramenta de Migrations do projeto;
+- Realizar validações com Bean Validation utilizando algumas de suas anotações, como a @NotBlank.
