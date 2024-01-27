@@ -27,3 +27,4 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Paginação com o Pageable do Spring(localhost:8080/medicos?size=1&page=o) Podemos utilizar no lugar do List de listar todos os medicos.
 - Utilizando a interface Pageable do Spring para realizar consultas com paginação.
 - Controle da paginação e a ordenação dos dados devolvidos pela API com os parâmetros page, size e sort.
+- Criação do metodo PUT para fazer a atualização cadastral do medido, no entendo atualizamos apenas alguns dadodos passados nas regras de negocio(Para isso usei o DTO)

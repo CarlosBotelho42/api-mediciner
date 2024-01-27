@@ -27,16 +27,16 @@ public class MedicoController {
     }
 
     @GetMapping
-    public Page<DadosListagemMedico> listar(@PageableDefault(size = 2, sort = {"nome"}) Pageable pageable){
+    public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable){
         return repository.findAll(pageable).map(DadosListagemMedico::new);
 
     }
 
-//    @PutMapping
-//    @Transactional
-//    public void atualizar(@RequestBody @Valid DadosAtualizaMedicos dados){
-//
-//
-//    }
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizaMedicos dados){
+        var medido = repository.getReferenceById(dados.id());
+        medido.atualizaInformacoes(dados);
+    }
 
 }
