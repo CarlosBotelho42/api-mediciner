@@ -2,10 +2,10 @@ package med.voll.apimediciner.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.apimediciner.medico.DadosCadastroMedico;
-import med.voll.apimediciner.medico.DadosListagemMedico;
-import med.voll.apimediciner.medico.Medico;
-import med.voll.apimediciner.medico.MedicoRepository;
+import med.voll.apimediciner.medico.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,10 +27,16 @@ public class MedicoController {
     }
 
     @GetMapping
-    public List<DadosListagemMedico> listar(){
-
-        return repository.findAll().stream().map(DadosListagemMedico::new).toList();
+    public Page<DadosListagemMedico> listar(@PageableDefault(size = 2, sort = {"nome"}) Pageable pageable){
+        return repository.findAll(pageable).map(DadosListagemMedico::new);
 
     }
+
+//    @PutMapping
+//    @Transactional
+//    public void atualizar(@RequestBody @Valid DadosAtualizaMedicos dados){
+//
+//
+//    }
 
 }
