@@ -1,8 +1,8 @@
-package med.voll.apimediciner.medico;
+package med.voll.apimediciner.domain.medico;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.apimediciner.endereco.Endereco;
+import med.voll.apimediciner.domain.endereco.Endereco;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")

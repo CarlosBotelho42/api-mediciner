@@ -1,4 +1,4 @@
-package med.voll.apimediciner.endereco;
+package med.voll.apimediciner.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -15,15 +15,16 @@ public record DadosEndereco(
         @Pattern(regexp = "\\d{8}")
         String cep,
 
-        String numero,
-
-        String complemento,
-
         @NotBlank
         String cidade,
 
         @NotBlank
-        String uf
+        String uf,
+
+        String numero,
+
+        String complemento
+
 
 ) {
 }
