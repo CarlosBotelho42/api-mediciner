@@ -30,6 +30,8 @@ public class MedicoController {
         return ResponseEntity.created(uri).body(new DadosDetalhesMedico(medico));
     }
 
+
+
     @GetMapping
     public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable){
         var page =  repository.findAllByAtivoTrue(pageable).map(DadosListagemMedico::new);
@@ -53,6 +55,14 @@ public class MedicoController {
         medido.desativar();
 
         return ResponseEntity.noContent().build();
+
+    }
+
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity detalharPorId(@PathVariable Long id){
+        var medido = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhesMedico(medido));
 
     }
 
