@@ -30,3 +30,4 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Criação do metodo PUT para fazer a atualização cadastral do medido, no entendo atualizamos apenas alguns dadodos passados nas regras de negocio(Para isso usei o DTO)
 - Implementada a lógica de exclusão com o uso de um atributo booleano.
 - Usando o server.error.include-stacktrace=never para travar o trace da resposta de requisicao quando acorre algum erro(importante pois no trace vem infos importantes sobre a API)
+- Criada uma classe que trata Exceptions globais de forma mais facil sem por os try cat com o RestControllerAdvice
