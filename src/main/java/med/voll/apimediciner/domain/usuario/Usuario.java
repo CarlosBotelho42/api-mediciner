@@ -5,10 +5,9 @@ import lombok.*;
 
 @Table(name = "usuarios")
 @Entity(name = "Usuario")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 

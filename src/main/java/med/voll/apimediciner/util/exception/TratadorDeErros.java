@@ -1,4 +1,4 @@
-package med.voll.apimediciner.util;
+package med.voll.apimediciner.util.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
