@@ -32,3 +32,9 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Usando o server.error.include-stacktrace=never para travar o trace da resposta de requisicao quando acorre algum erro(importante pois no trace vem infos importantes sobre a API)
 - Criada uma classe para isolar o tratamento de exceptions da API, com a utilização da anotação @RestControllerAdvice.
 - Tratando erros do tipo 400 (Bad Request), para erros de validação do Bean Validation, na classe de tratamento de erros.
+---
+
+- Entendido o Funciona o processo de autenticação e autorização em uma API Rest;
+- Adicionado o Spring Security ao projeto;
+- Entendido  o comportamento padrão do Spring Security em uma aplicação;
+- Implementado o processo de autenticação na API, de maneira Stateless, utilizando as classes e configurações do Spring Security.
