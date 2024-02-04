@@ -38,3 +38,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Adicionado o Spring Security ao projeto;
 - Entendido  o comportamento padrão do Spring Security em uma aplicação;
 - Implementado o processo de autenticação na API, de maneira Stateless, utilizando as classes e configurações do Spring Security.
+- Adicionada a biblioteca Auth0 java-jwt como dependência do projeto;
+- Utilizando essa biblioteca para realizar a geração de um token na API;
+- Injetando uma propriedade do arquivo application.properties em uma classe gerenciada pelo Spring, utilizando a anotação @Value;
+- Devolvendo um token gerado na API quando um usuário se autenticar nela.
