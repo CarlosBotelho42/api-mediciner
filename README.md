@@ -42,3 +42,10 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Utilizando essa biblioteca para realizar a geração de um token na API;
 - Injetando uma propriedade do arquivo application.properties em uma classe gerenciada pelo Spring, utilizando a anotação @Value;
 - Devolvendo um token gerado na API quando um usuário se autenticar nela.
+
+---
+
+- Entendendo o funcionamento dos Filters em uma requisição;
+- Utilizada a biblioteca Auth0 java-jwt para realizar a validação dos tokens recebidos na API;
+- Realizado o processo de autenticação da requisição, utilizando a classe SecurityContextHolder, do Spring;
+- Liberar e restringir requisições, de acordo com a URL e o verbo do protocolo HTTP.
