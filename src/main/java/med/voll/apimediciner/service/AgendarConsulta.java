@@ -7,6 +7,7 @@ import med.voll.apimediciner.domain.medico.Medico;
 import med.voll.apimediciner.domain.medico.MedicoRepository;
 import med.voll.apimediciner.domain.paciente.Paciente;
 import med.voll.apimediciner.domain.paciente.PacienteRepository;
+import med.voll.apimediciner.util.ValidationConsultaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +25,24 @@ public class AgendarConsulta {
 
     public void agendar(DadosAgendamentoConsulta dados){
 
+        //Verificar existencia por id
+        if(!pacienteRepository.existsById(dados.idPaciente())){
+            throw new ValidationConsultaException("ID do Paciente não exsite!");
+        }
+
+        if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
+            throw new ValidationConsultaException("ID do Medico não exsite!");
+        }
+
         //salvar no banco
-        Medico medico = medicoRepository.findById(dados.idMedico()).get();
+        Medico medico = escolherMedico(dados);
         Paciente paciente = pacienteRepository.findById(dados.idPaciente()).get();
         var consulta = new Consulta(null, medico, paciente, dados.data());
         consultarepositry.save(consulta);
+    }
+
+    private Medico escolherMedico(DadosAgendamentoConsulta dados) {
+        return null;
     }
 
 }
