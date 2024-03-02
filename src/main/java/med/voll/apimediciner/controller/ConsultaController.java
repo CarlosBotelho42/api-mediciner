@@ -2,6 +2,8 @@ package med.voll.apimediciner.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
+import med.voll.apimediciner.domain.consulta.DadosDetalheConsulta;
 import med.voll.apimediciner.service.AgendarConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package med.voll.apimediciner.controller;
+package med.voll.apimediciner.domain.consulta;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
