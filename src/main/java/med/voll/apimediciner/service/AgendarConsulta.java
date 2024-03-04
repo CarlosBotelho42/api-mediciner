@@ -26,7 +26,13 @@ public class AgendarConsulta {
     public void agendar(DadosAgendamentoConsulta dados){
 
         //Verificar existencia por id
-        verificaID(dados);
+        if(!pacienteRepository.existsById(dados.idPaciente())){
+            throw new ValidationConsultaException("ID do Paciente não exsite!");
+        }
+
+        if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
+            throw new ValidationConsultaException("ID do Medico não exsite!");
+        }
 
         //salvar no banco
         Medico medico = escolherMedico(dados);
@@ -35,15 +41,6 @@ public class AgendarConsulta {
         consultarepositry.save(consulta);
     }
 
-    private void verificaID(DadosAgendamentoConsulta dados) {
-        if(!pacienteRepository.existsById(dados.idPaciente())){
-            throw new ValidationConsultaException("ID do Paciente não exsite!");
-        }
-
-        if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
-            throw new ValidationConsultaException("ID do Medico não exsite!");
-        }
-    }
 
     private Medico escolherMedico(DadosAgendamentoConsulta dados) {
 

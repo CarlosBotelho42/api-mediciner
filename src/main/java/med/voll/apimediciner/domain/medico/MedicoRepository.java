@@ -1,5 +1,6 @@
 package med.voll.apimediciner.domain.medico;
 
+import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,4 +19,11 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
              order by rand() limit 1
             """)
     Medico escolherMedicoAleatorioDisponivelNaDatata(Especialidade especialidade, LocalDateTime data);
+
+    @Query("""
+            select m.ativo from Medico m where m.id = :id
+            """)
+    Boolean findAtivoById(Long idMedico);
+
+    Boolean existsByMedicoIdAndData(Long idMedico);
 }
