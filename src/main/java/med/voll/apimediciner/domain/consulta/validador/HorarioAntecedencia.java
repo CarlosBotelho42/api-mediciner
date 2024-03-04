@@ -5,7 +5,7 @@ import med.voll.apimediciner.util.exception.ValidationConsultaException;
 
 import java.time.Duration;
 
-public class ValidadorHorarioAntecedencia {
+public class HorarioAntecedencia {
 
     public void validar(DadosAgendamentoConsulta dados){
 
