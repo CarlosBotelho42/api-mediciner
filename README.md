@@ -49,3 +49,9 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 - Utilizada a biblioteca Auth0 java-jwt para realizar a validação dos tokens recebidos na API;
 - Realizado o processo de autenticação da requisição, utilizando a classe SecurityContextHolder, do Spring;
 - Liberar e restringir requisições, de acordo com a URL e o verbo do protocolo HTTP.
+
+---
+
+- Isolados os códigos de validações de regras de negócio em classes separadas, utilizando nelas a anotação @Component do Spring;
+- Finalizada a implementação do algoritmo de agendamento de consultas;
+- Utilizado os princípios SOLID para deixar o código da funcionalidade de agendamento de consultas mais fácil de entender, evoluir e testar.
