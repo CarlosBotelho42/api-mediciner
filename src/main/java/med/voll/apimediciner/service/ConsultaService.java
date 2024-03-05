@@ -47,6 +47,11 @@ public class ConsultaService {
         Medico medico = escolherMedico(dados);
         Paciente paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var consulta = new Consulta(null, medico, paciente, dados.data());
+
+        if(medico == null){
+            throw new ValidationConsultaException("Não existe medico disponivel nessa data!");
+        }
+
         consultarepositry.save(consulta);
 
         return new DadosDetalheConsulta(consulta);
