@@ -3,6 +3,7 @@ package med.voll.apimediciner.controller;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.apimediciner.domain.medico.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -14,11 +15,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("medicos")
 public class MedicoController {
 
-    private final MedicoRepository repository;
-
-    public MedicoController(MedicoRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private MedicoRepository repository;
 
     @PostMapping
     @Transactional
