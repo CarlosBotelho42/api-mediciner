@@ -3,6 +3,7 @@ package med.voll.apimediciner.service;
 import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.apimediciner.domain.consulta.Consulta;
 import med.voll.apimediciner.domain.consulta.ConsultaRepositry;
+import med.voll.apimediciner.domain.consulta.DadosDetalheConsulta;
 import med.voll.apimediciner.domain.consulta.validador.ValidadorAgendamentoConsulta;
 import med.voll.apimediciner.domain.medico.Medico;
 import med.voll.apimediciner.domain.medico.MedicoRepository;
@@ -29,7 +30,7 @@ public class ConsultaService {
     @Autowired
     private List<ValidadorAgendamentoConsulta> validadores;
 
-    public void agendar(DadosAgendamentoConsulta dados){
+    public DadosDetalheConsulta agendar(DadosAgendamentoConsulta dados){
 
         //Verificar existencia por id
         if(!pacienteRepository.existsById(dados.idPaciente())){
@@ -47,6 +48,8 @@ public class ConsultaService {
         Paciente paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var consulta = new Consulta(null, medico, paciente, dados.data());
         consultarepositry.save(consulta);
+
+        return new DadosDetalheConsulta(consulta);
     }
 
 
