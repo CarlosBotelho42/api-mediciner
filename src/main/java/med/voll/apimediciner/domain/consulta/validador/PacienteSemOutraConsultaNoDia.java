@@ -3,8 +3,10 @@ package med.voll.apimediciner.domain.consulta.validador;
 import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.apimediciner.domain.paciente.PacienteRepository;
 import med.voll.apimediciner.util.exception.ValidationConsultaException;
+import org.springframework.stereotype.Component;
 
-public class PacienteSemOutraConsultaNoDia {
+@Component
+public class PacienteSemOutraConsultaNoDia implements ValidadorAgendamentoConsulta{
 
     private PacienteRepository repository;
 

@@ -3,6 +3,7 @@ package med.voll.apimediciner.service;
 import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.apimediciner.domain.consulta.Consulta;
 import med.voll.apimediciner.domain.consulta.ConsultaRepositry;
+import med.voll.apimediciner.domain.consulta.validador.ValidadorAgendamentoConsulta;
 import med.voll.apimediciner.domain.medico.Medico;
 import med.voll.apimediciner.domain.medico.MedicoRepository;
 import med.voll.apimediciner.domain.paciente.Paciente;
@@ -11,8 +12,10 @@ import med.voll.apimediciner.util.exception.ValidationConsultaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class AgendarConsulta {
+public class ConsultaService {
 
     @Autowired
     private ConsultaRepositry consultarepositry;
@@ -22,6 +25,9 @@ public class AgendarConsulta {
 
     @Autowired
     private PacienteRepository pacienteRepository;
+
+    @Autowired
+    private List<ValidadorAgendamentoConsulta> validadores;
 
     public void agendar(DadosAgendamentoConsulta dados){
 
@@ -33,6 +39,8 @@ public class AgendarConsulta {
         if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
             throw new ValidationConsultaException("ID do Medico não exsite!");
         }
+
+        validadores.forEach(v -> v.validar(dados));
 
         //salvar no banco
         Medico medico = escolherMedico(dados);

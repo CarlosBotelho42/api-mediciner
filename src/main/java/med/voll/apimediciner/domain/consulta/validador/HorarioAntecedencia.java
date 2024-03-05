@@ -2,10 +2,12 @@ package med.voll.apimediciner.domain.consulta.validador;
 
 import med.voll.apimediciner.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.apimediciner.util.exception.ValidationConsultaException;
+import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 
-public class HorarioAntecedencia {
+@Component
+public class HorarioAntecedencia implements ValidadorAgendamentoConsulta {
 
     public void validar(DadosAgendamentoConsulta dados){
 
